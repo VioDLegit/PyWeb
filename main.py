@@ -1,0 +1,58 @@
+import time
+import win32gui
+import requests
+
+webhook_url = 'https://discord.com/api/webhooks/1363322884382134314/HP-j7I-nyaBM9eDBbOGjBCP-lE3noxXKlSUfy1sWNtwh0N6OKE0Ok2O9bK3AFEhbzpKO'
+
+messages = {
+    "YouTube": {
+        "username": "red box white triangle",
+        "content": "viod went to youtube, what is he gonna watch :sob:",
+        "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png",
+        "color": 0xFF0000
+    },
+    "Roblox": {
+        "username": "cubical lego game",
+        "content": "alr now lil bro is on lego game",
+        "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_logo_2017.png",
+        "color": 0x0000FF
+    },
+    "Discord": {
+        "username": "dicksord",
+        "content": "went back to chatting like a looser",
+        "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Discord_logo_2015.png",
+        "color": 0xFFA500
+    }
+}
+
+last_keyword = None
+
+def get_active_window_title():
+    return win32gui.GetWindowText(win32gui.GetForegroundWindow())
+
+def send_message(keyword):
+    data = messages[keyword]
+    payload = {
+        "username": data["username"],
+        "avatar_url": data["avatar_url"],
+        "embeds": [{
+            "description": data["content"],
+            "color": data["color"]
+        }]
+    }
+    requests.post(webhook_url, json=payload)
+    print(f"✅ Sent message for: {keyword}")
+
+while True:
+    active_window = get_active_window_title()
+    found = False
+    for keyword in messages:
+        if keyword.lower() in active_window.lower():
+            found = True
+            if keyword != last_keyword:
+                send_message(keyword)
+                last_keyword = keyword
+            break
+    if not found:
+        last_keyword = None
+    time.sleep(0.5)
