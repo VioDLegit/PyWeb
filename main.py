@@ -25,12 +25,12 @@ messages = {
     }
 }
 
-last_keyword = None
+recentkw = None
 
-def get_active_window_title():
+def wintitle():
     return win32gui.GetWindowText(win32gui.GetForegroundWindow())
 
-def send_message(keyword):
+def send(keyword):
     data = messages[keyword]
     payload = {
         "username": data["username"],
@@ -43,15 +43,15 @@ def send_message(keyword):
     requests.post(hook, json=payload)
 
 while True:
-    active_window = get_active_window_title()
+    activewindow = wintitle()
     found = False
     for keyword in messages:
-        if keyword.lower() in active_window.lower():
+        if keyword.lower() in activewindow.lower():
             found = True
-            if keyword != last_keyword:
-                send_message(keyword)
-                last_keyword = keyword
+            if keyword != recentkw:
+                send(keyword)
+                recentkw = keyword
             break
     if not found:
-        last_keyword = None
+        recentkw = None
     time.sleep(0.5)
