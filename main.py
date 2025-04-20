@@ -40,7 +40,7 @@ def send_message(keyword):
             "color": data["color"]
         }]
     }
-    requests.post(webhook_url, json=payload)
+    requests.post(hook, json=payload)
     print(f"✅ Sent message for: {keyword}")
 
 while True:
