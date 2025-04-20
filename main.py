@@ -2,24 +2,24 @@ import time
 import win32gui
 import requests
 
-webhook_url = 'https://discord.com/api/webhooks/1363322884382134314/HP-j7I-nyaBM9eDBbOGjBCP-lE3noxXKlSUfy1sWNtwh0N6OKE0Ok2O9bK3AFEhbzpKO'
+hook = '----'
 
 messages = {
     "YouTube": {
         "username": "red box white triangle",
-        "content": "viod went to youtube, what is he gonna watch :sob:",
+        "content": "you can always change this message for going to youtube.com",
         "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png",
         "color": 0xFF0000
     },
     "Roblox": {
         "username": "cubical lego game",
-        "content": "alr now lil bro is on lego game",
+        "content": "this is the message for going on roblox.com! you can always change it to whatever you want!",
         "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_logo_2017.png",
         "color": 0x0000FF
     },
     "Discord": {
         "username": "dicksord",
-        "content": "went back to chatting like a looser",
+        "content": "can always change this message for going to discord.com",
         "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Discord_logo_2015.png",
         "color": 0xFFA500
     }
