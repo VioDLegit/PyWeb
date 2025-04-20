@@ -24,7 +24,14 @@ messages = {
         "content": "can always change this message for going to discord.com", # the message which will be sent 
         "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Discord_logo_2015.png", # avatar 
         "color": 0xFFA500 # embed color
-    }
+    },
+
+    "Visual Studio Code": {
+        "username": "vsc", # username
+        "content": "can always change this (it works when you open the visual studio code app) ", # the message which will be sent 
+        "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Discord_logo_2015.png", # tis is a place holder
+        "color": 0xFFA500 # place holder
+    },
 }
 
 recentkw = None
